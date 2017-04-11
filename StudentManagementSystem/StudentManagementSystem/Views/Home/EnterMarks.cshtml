@@ -1,0 +1,22 @@
+﻿
+@{
+    ViewBag.Title = "EnterMarks";
+}
+
+<h2>EnterMarks</h2>
+
+@using (Html.BeginForm("AddMarks", "Home", FormMethod.Post))
+{<div>
+        Student Name:
+        @Html.DropDownList("students")
+        <br />
+        @Html.DropDownList("Marks")
+        <br />
+        Enter Marks:<input type="text" id="txtMarks"/>
+    <br />
+        <input type="submit" class="btn btn-lg" value="Add details" />
+
+    </div>
+}
+  
+

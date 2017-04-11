@@ -1,0 +1,138 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+
+@*@*<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+<script lang="ja" type="text/javascript">
+
+    $(document).ready(function () {
+        $.ajax({
+
+            type: "GET",
+            url: "http://localhost:51417/Home/Get", //URI
+
+            dataType: "json",
+            success: function (data) {
+                //  alert(data);
+
+                debugger;
+                var datavalue = data;
+                var myJsonObject = datavalue;
+                contentType: "application/json";
+
+                $.each(myJsonObject, function (i, mobj) {
+                   // alert(mobj.Designation);
+                    $("#designationList").append('<option value=' + mobj.Id + '>' + mobj.Designation + '</option>');
+
+                });
+
+            },
+            error: function (xhr) {
+                alert(xhr.responseText);
+            }
+        });
+    });*@
+
+    @*//function AddLoginDetails() {
+
+    //    var empDetails = {
+    //        EmployeeName: ($("#txtName").val()),
+    //        selectedDesignation: ($("#designationList").val())
+    //    }
+
+
+    //    alert("Hi")
+    //    $.ajax(
+    //    {
+    //        type: "POST", //HTTP POST Method
+
+    //        url: "http://localhost:51417/api/Values/Post",
+    //        contentType: "application/json; charset=utf-8",
+    //        data:JSON.stringify(empDetails),
+
+    //        dataType: "json",
+    //        success: function (t) { $("#empid").val(t); }
+
+    //    });
+    //    alert("hi");
+    //}
+
+</script>*@
+
+
+<div>
+    <h1>Student Details</h1>
+    @using (Html.BeginForm("AddItem", "Home", FormMethod.Post))
+    {
+        @*<input type="hidden" id="empid" name="empid" />*@
+            <label for="">First Name</label>
+            @Html.TextBox("txtFname")
+
+        <br />
+
+        <label for="">Middle Name</label>
+            @Html.TextBox("txtMname")
+
+        <br />
+
+        <label for="">Last Name</label>
+        @Html.TextBox("txtLname")
+
+        <br />
+
+        <label for="">Date</label>
+        @Html.TextBox("txtDate")
+
+        <br />
+
+        <label for="">Address</label>
+        @Html.TextBox("txtAdd")
+
+        <br />
+
+        <label for="">Father's Name</label>
+        @Html.TextBox("txtFather")
+
+        <br />
+        <label for="">Mother's Name</label>
+        @Html.TextBox("txtMother")
+
+        <br />
+
+        <label for="">Primary Contact Number</label>
+        @Html.TextBox("txtPCN")
+        <br />
+        <label for="">Secondary Contact Number</label>
+        @Html.TextBox("txtSCN")
+           
+            <br />
+
+            @Html.DropDownList("StandardList")
+
+            <br />
+            @*<label for="">Division</label>
+            <br />
+            <select id="DivisionList">
+                <option>1</option>
+                <option>2</option>
+            </select>*@
+
+            @Html.DropDownList("DivisionList")
+            <br />
+            <br />
+            <input type="submit" class="btn btn-lg" value="Add details" />
+
+            <br />
+            <br />
+    }
+</div>
+<div>
+    @using (Html.BeginForm("AddMarks", "Home", FormMethod.Post))
+    {
+       
+            <input type="submit" class="btn btn-lg" value="Add Marks" />
+    }
+</div>
